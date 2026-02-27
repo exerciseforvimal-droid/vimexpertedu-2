@@ -1,4 +1,4 @@
-name: Build Android APK
+name: Build APK
 on: [push, workflow_dispatch]
 
 jobs:
@@ -9,12 +9,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build with Buildozer
+        # Hum ek naya aur zyada stable action use kar rahe hain
         uses: Enteee/buildozer-action@v1.1.0
         with:
           command: buildozer android debug
           buildozer_version: master
 
       - name: Upload APK
+        # Version 3 ki jagah naya Version 4 use kar rahe hain
         uses: actions/upload-artifact@v4
         with:
           name: AttendanceApp-APK
