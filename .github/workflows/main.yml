@@ -16,7 +16,6 @@ jobs:
       - name: Install Essential Dependencies
         run: |
           sudo apt update
-          # Sirf wahi packages jo Kivy aur Android build ke liye 100% zaruri hain
           sudo apt install -y build-essential git python3-pip zip unzip openjdk-17-jdk \
           libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev \
           autoconf libtool pkg-config zlib1g-dev
@@ -28,7 +27,9 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          # Pehli baar build hone mein 20-25 mins lagte hain, sabr rakhein
+          # Ye line purane errors ko clear karegi
+          buildozer android clean
+          # Ab asli build shuru hogi
           buildozer android debug
         env:
           ACCEPT_SDK_LICENSE: "True"
@@ -36,5 +37,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: Final-Attendance-App
+          name: Attendance-App-V1
           path: bin/*.apk
