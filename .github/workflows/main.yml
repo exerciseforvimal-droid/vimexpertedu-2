@@ -1,4 +1,4 @@
-name: Build APK
+name: Build Android APK
 on: [push, workflow_dispatch]
 
 jobs:
@@ -17,5 +17,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v3
         with:
-          name: attendance-app
+          name: AttendanceApp-APK
           path: bin/*.apk
