@@ -1,32 +1,26 @@
 [app]
-title = Attendance App
+title = Expertedu Attendance
 package.name = attendanceapp
 package.domain = org.vimal
 source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,db
-version = 0.1
+version = 1.0
 
-# Requirements: Kivy aur KivyMD ka stable version set kiya hai
-requirements = python3,kivy==2.3.0,kivymd==1.2.0,pillow,sqlite3
+# Requirements: KivyMD hata diya hai taaki build fast aur stable ho
+requirements = python3,kivy==2.3.0
 
 orientation = portrait
 fullscreen = 0
 
-# Android specific (Inhe dhyan se dekhein)
+# Android specific
 android.api = 33
 android.minapi = 21
-# NDK 25b sabse stable hai GitHub Actions ke liye
-android.ndk = 27b
-android.ndk_path = 
-android.sdk_path = 
+android.ndk = 25b
 android.accept_sdk_license = True
+android.permissions = INTERNET, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE
 
-# Permissions: Attendance app ke liye zaruri hain
-android.permissions = INTERNET, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE, CAMERA
-
-# Architecture: Sirf armeabi-v7a rakha hai taaki build fail na ho aur jaldi bane
+# Architecture: Sirf ye ek rakhein, error nahi aayega
 android.archs = armeabi-v7a
-android.allow_backup = True
 
 [buildozer]
 log_level = 2
