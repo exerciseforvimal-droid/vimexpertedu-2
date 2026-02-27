@@ -19,7 +19,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install System Dependencies
+      - name: Install Dependencies
         run: |
           sudo apt update
           sudo apt install -y build-essential git python3-pip zip unzip \
@@ -33,16 +33,14 @@ jobs:
 
       - name: Build with Buildozer
         run: |
-          # Sab kuch fresh start karne ke liye
+          # Purana cache poora delete karein taaki error na aaye
           rm -rf .buildozer
           buildozer android debug
         env:
           ACCEPT_SDK_LICENSE: "True"
-          # GitHub ke default NDK ko use karne ke liye
-          ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_LATEST_HOME }}
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: Attendance-App-V20
+          name: Expertedu-Attendance-App
           path: bin/*.apk
