@@ -3,7 +3,8 @@ on: [push, workflow_dispatch]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Humne version 22.04 lock kar diya hai jisme saare packages mil jayenge
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,6 +26,7 @@ jobs:
 
       - name: Build with Buildozer
         run: |
+          # Isme 15-20 minute lagenge
           buildozer android debug
         env:
           ACCEPT_SDK_LICENSE: "True"
@@ -32,5 +34,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: Attendance-App
+          name: Attendance-App-APK
           path: bin/*.apk
