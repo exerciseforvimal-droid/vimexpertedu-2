@@ -16,7 +16,7 @@ fullscreen = 0
 android.api = 33
 android.minapi = 21
 # NDK 25b sabse stable hai GitHub Actions ke liye
-android.ndk = 25b
+android.ndk = 27b
 android.ndk_path = 
 android.sdk_path = 
 android.accept_sdk_license = True
